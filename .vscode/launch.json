@@ -1,6 +1,7 @@
 {
-    "version": "0.2.0",
+    "version": "2.0.0",
     "configurations": [
+
         {
             "name": "Debug",
             "type": "cppdbg",
@@ -12,6 +13,27 @@
             "environment": [],
             "externalConsole": true,
             "preLaunchTask": "make",
+            "linux": {
+                "MIMode": "gdb"
+            },
+            "osx": {
+                "MIMode": "lldb"
+            },
+            "windows": {
+                "MIMode": "gdb"
+            }
+        },
+        {
+            "name": "Debug (Bazel)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/bazel-bin/src/main.runfiles/__main__/src/main",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": true,
+            //"preLaunchTask": "bazel build",
             "linux": {
                 "MIMode": "gdb"
             },

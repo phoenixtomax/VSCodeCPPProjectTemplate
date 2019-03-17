@@ -1,23 +1,68 @@
 {
-    "version": "0.1.0",
+    "version": "2.0.0",
     "tasks": [
     {
-        "taskName": "make",
+        "label": "make",
         "command": "make",
-        "isShellCommand": true,
+        "type": "shell",
         "args": [],
-        "showOutput": "always",
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+    },
+    {
+        "label": "UT",
+        "type": "shell",
+        "command": "./bin/ut",
+    },
+    {
+        "label": "bazel clean",
+        "command": "bazel",
+        "args": [
+            "clean",
+        ],
+        "type": "shell",
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+    },
+    {
+        "label": "bazel build",
+        "command": "bazel",
+        "args": [
+            "build", 
+            "-c",
+            "dbg",
+            "...", 
+            "--verbose_failures",
+        ],
+        "type": "shell",
+        "group": {
+            "kind": "build",
+            "isDefault": true
+        },
+        "dependsOn": [
+            "bazel clean"
+        ]
+    },
+    {
+        "label": "bazel test",
+        "command": "bazel",
+        "args": [
+            "test", 
+            "-c",
+            "dbg",
+            "...", 
+            "--verbose_failures",
+        ],
+        "type": "shell",
         "group": {
             "kind": "build",
             "isDefault": true
         }
     },
-    {
-        "taskName": "UT",
-        "isShellCommand": true,
-        "isTestCommand": true,
-        "command": "./bin/ut",
-        "showOutput": "always"
-    }
+
 ]
 }
