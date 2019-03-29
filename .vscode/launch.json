@@ -10,7 +10,6 @@
             "stopAtEntry": true,
             "cwd": "${workspaceRoot}",
             "environment": [],
-            "externalConsole": true,
             "preLaunchTask": "make",
             "linux": {
                 "MIMode": "gdb"
@@ -31,7 +30,6 @@
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}",
             "environment": [],
-            "externalConsole": true,
             "preLaunchTask": "make",
             "postDebugTask": "UT",
             "linux": {
